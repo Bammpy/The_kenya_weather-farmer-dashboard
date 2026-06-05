@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto p-6">
+    <header class="mb-10 text-center">
+        <h1 class="text-5xl font-bold text-green-800 flex items-center justify-center gap-3">
+            🌾 Kenya Weather Farmer Dashboard
+        </h1>
+        <p class="text-lg text-gray-600 mt-2">Real-time Weather + AI Farming Insights • Powered by Weather-AI</p>
+    </header>
+
+    <div class="flex flex-col md:flex-row gap-4 mb-4 max-w-2xl mx-auto">
+        <input type="text" id="city-input" placeholder="Enter city (Nairobi, Kisumu, Eldoret, Nakuru, Mombasa...)"
+               class="flex-1 p-5 text-lg border border-gray-300 rounded-2xl focus:outline-none focus:border-green-600" />
+        <button onclick="getWeatherByCity()"
+                class="bg-green-600 hover:bg-green-700 text-white px-10 py-5 rounded-2xl font-semibold text-lg transition">
+            🌤️ Get Forecast
+        </button>
+    </div>
+
+    <div id="error-message" class="hidden max-w-2xl mx-auto mb-6 rounded-3xl bg-red-100 border border-red-200 p-6 text-red-800"></div>
+
+    <div id="loading" class="hidden text-center py-12">
+        <div class="animate-spin h-12 w-12 mx-auto border-4 border-green-600 border-t-transparent rounded-full"></div>
+        <p class="mt-4 text-green-700 font-medium">Fetching latest weather & AI advisory...</p>
+    </div>
+
+    <div id="weather-container" class="hidden grid grid-cols-1 lg:grid-cols-3 gap-8"></div>
+</div>
+
+<script>
+function showError(message) {
+    const errorBox = document.getElementById('error-message');
+    errorBox.textContent = message;
+    errorBox.classList.remove('hidden');
+}
+
+function clearError() {
+    const errorBox = document.getElementById('error-message');
+    errorBox.textContent = '';
+    errorBox.classList.add('hidden');
+}
+
+async function getWeatherByCity() {
+    const input = document.getElementById('city-input').value.trim();
+    const loading = document.getElementById('loading');
+    const container = document.getElementById('weather-container');
+
+    clearError();
+    loading.classList.remove('hidden');
+    container.classList.add('hidden');
+
+    try {
+        let url = '/weather';
+        if (input) {
+            url += `?city=${encodeURIComponent(input)}`;
+        }
+
+        const res = await fetch(url);
+        const data = await res.json();
+
+        if (data.error) {
+            showError(data.error);
+            return;
+        }
+
+        displayWeather(data);
+    } catch (err) {
+        console.error(err);
+        showError('Unable to fetch data. Please try again later.');
+    } finally {
+        loading.classList.add('hidden');
+        container.classList.remove('hidden');
+    }
+}
+
+function displayWeather(data) {
+    const container = document.getElementById('weather-container');
+    const location = data.searched_city || data.location?.name || 'Nairobi, Kenya';
+    const current = data.current || data.today || {};
+    const aiSummary = data.ai_summary || data.insights?.summary || data.summary || 'Favorable weather conditions for farming activities today.';
+
+    container.innerHTML = `
+        <div class="bg-white rounded-3xl shadow-2xl p-8 lg:col-span-2">
+            <h2 class="text-4xl font-bold text-gray-800">${location}</h2>
+            <div class="flex items-center gap-8 mt-8">
+                <div class="text-9xl">🌤️</div>
+                <div>
+                    <p class="text-8xl font-light text-green-700">${current.temp || current.temperature || '?'}°C</p>
+                    <p class="text-3xl capitalize">${current.condition || current.description || 'Clear Skies'}</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-8 mt-12 text-center">
+                <div><p class="text-sm text-gray-500">Humidity</p><p class="text-4xl font-semibold">${current.humidity || '?'}%</p></div>
+                <div><p class="text-sm text-gray-500">Wind Speed</p><p class="text-4xl font-semibold">${current.wind_speed || current.wind || '?'} km/h</p></div>
+                <div><p class="text-sm text-gray-500">Feels Like</p><p class="text-4xl font-semibold">${current.feels_like || '?'}°C</p></div>
+            </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-green-700 to-emerald-800 text-white rounded-3xl shadow-2xl p-8">
+            <h3 class="text-2xl font-bold mb-6">🤖 AI Farmer Advisory</h3>
+            <p class="leading-relaxed text-lg">${aiSummary}</p>
+        </div>
+
+        <div class="lg:col-span-3 mt-10">
+            <h3 class="text-3xl font-bold mb-6 text-gray-800">7-Day Forecast</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4" id="forecast-grid"></div>
+        </div>
+    `;
+
+    const forecastGrid = document.getElementById('forecast-grid');
+    const forecast = data.forecast || data.daily || [];
+
+    if (!forecast.length) {
+        forecastGrid.innerHTML = '<p class="text-center col-span-full text-gray-500">No forecast data available.</p>';
+        return;
+    }
+
+    forecastGrid.innerHTML = '';
+    forecast.forEach(day => {
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-2xl shadow p-6 text-center hover:shadow-lg transition';
+        card.innerHTML = `
+            <p class="font-medium text-gray-600">${day.date ? day.date.substring(0, 10) : 'Day'}</p>
+            <p class="text-5xl my-4">🌤️</p>
+            <p class="text-3xl font-bold text-green-700">${day.temp_max || day.high || '?'}°</p>
+            <p class="text-sm text-gray-500">${day.temp_min || day.low || '?'}°</p>
+        `;
+        forecastGrid.appendChild(card);
+    });
+}
+
+window.onload = getWeatherByCity;
+</script>
+{% endblock %}
