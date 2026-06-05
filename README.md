@@ -100,7 +100,7 @@ This project is ready for deployment on platforms such as Render or Railway.
 
 ## 💡 Next steps for submission
 
-- Publish the repository publicly on GitHub.
+- Push the repository to GitHub.
 - Deploy the app and confirm the live URL works.
 - Reply to the hiring email with:
   1. GitHub repository link
