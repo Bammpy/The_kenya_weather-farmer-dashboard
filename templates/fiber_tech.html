@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block title %}Fiber Tech - Bammpy ByteBeam Forge{% endblock %}
+
+{% block content %}
+<section class="fiber-section py-5 position-relative overflow-hidden">
+    <!-- Background -->
+    <div class="fiber-bg"></div>
+    <div class="fiber-overlay"></div>
+
+    <div class="container position-relative" data-aos="fade-up">
+        <h1 class="text-center display-4 mb-4 gradient-text">Fiber & Networking Expertise</h1>
+        <p class="text-center lead mb-5">Professional fiber optic installation, WiFi configuration, and connectivity solutions – forged for speed and reliability.</p>
+
+        <!-- Service Packages -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-4" data-aos="fade-up">
+                <div class="service-card h-100 p-4 text-center">
+                    <h3 class="gradient-text">Home Basic</h3>
+                    <p class="fs-4 fw-bold">From Ksh 800</p>
+                    <p class="fs-4 fw-bold">5 Mbps</p>
+                    <ul class="list-unstyled">
+                        <li>Single fiber termination</li>
+                        <li>Basic WiFi setup</li>
+                        <li>Speed test & optimization</li>
+                    </ul>
+                    <a href="/contact" class="btn btn-primary mt-auto pulse-btn">Book Now</a>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card h-100 p-4 text-center">
+                    <h3 class="gradient-text">Business Pro</h3>
+                    <p class="fs-4 fw-bold">From Ksh 1500</p>
+                    <p class="fs-4 fw-bold">10 Mbps</p>
+                    <ul class="list-unstyled">
+                        <li>Multi-point fiber install</li>
+                        <li>Enterprise WiFi packages</li>
+                        <li>Router config & security</li>
+                        <li>1-year support</li>
+                    </ul>
+                    <a href="/contact" class="btn btn-primary mt-auto pulse-btn">Get Quote</a>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card h-100 p-4 text-center">
+                    <h6 class="gradient-text">Platinum</h6>
+                    <p class="fs-4 fw-bold">15 Mbps</p>
+                    <p class="fs-4 fw-bold">Quote Based</p>
+                    <ul class="list-unstyled">
+                        <li>Full site survey</li>
+                        <li>Patch panels & cabinets</li>
+                        <li>Redundant connections</li>
+                        <li>Ongoing maintenance</li>
+                    </ul>
+                    <a href="/contact" class="btn btn-primary mt-auto pulse-btn">Contact Me</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Process Steps -->
+        <h2 class="text-center mb-5 gradient-text" data-aos="fade-up">My Process</h2>
+        <div class="row g-4 text-center mb-5">
+            <div class="col-md-3" data-aos="zoom-in">
+                <div class="process-step">1. Consultation & Survey</div>
+            </div>
+            <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+                <div class="process-step">2. Professional Installation</div>
+            </div>
+            <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
+                <div class="process-step">3. Testing & Optimization</div>
+            </div>
+            <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+                <div class="process-step">4. Handover & Support</div>
+            </div>
+        </div>
+
+        <!-- Gallery -->
+        <h2 class="text-center mb-5 gradient-text" data-aos="fade-up">Project Gallery</h2>
+        <div class="row g-4">
+            <!-- Replace src with your saved images -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                <div class="gallery-card">
+                    <img src="{{ url_for('static', filename='img/fiber1.jpg') }}" class="img-fluid" alt="Fiber Splicing">
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="gallery-card">
+                    <img src="{{ url_for('static', filename='img/fiber2.jpg') }}" class="img-fluid" alt="Fusion Splicer">
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="gallery-card">
+                    <img src="{{ url_for('static', filename='img/fiber3.jpg') }}" class="img-fluid" alt="WiFi Setup">
+                </div>
+            </div>
+            <!-- Add more up to 9-12 for full gallery -->
+        </div>
+    </div>
+</section>
+{% endblock %}

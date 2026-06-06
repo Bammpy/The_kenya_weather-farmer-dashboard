@@ -1,0 +1,1 @@
+blinker==1.9.0\nclick==8.3.1\ncolorama==0.4.6\nFlask==3.1.2\nFlask-Mail==0.10.0\npython-dotenv==1.2.1\ngunicorn==22.1.0

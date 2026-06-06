@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Home - Bammpy ByteBeam Forge{% endblock %}
+
+{% block content %}
+<!-- Full-Screen Hero Section -->
+<section class="hero min-vh-100 d-flex align-items-center position-relative overflow-hidden">
+    <!-- Background Image -->
+    <div class="hero-background"></div>
+    
+    <!-- Dark Overlay -->
+    <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+    
+    <!-- Content -->
+    <div class="container position-relative" data-aos="fade-up">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-10">
+                <h1 class="display-1 fw-bold mb-4">
+                    <span class="gradient-text">Bammpy ByteBeam Forge</span>
+                </h1>
+                <p class="lead mb-5 text-light opacity-90 fs-3">
+                    Forging Digital Solutions & Seamless Connections
+                </p>
+                <p class="mb-5 text-light opacity-80 col-lg-8 mx-auto">
+                    Python Full-Stack Developer • Machine Learning Enthusiast • Fiber Optic Technician<br>
+                    Custom Projects • Web/Mobile/Desktop Apps • High-Speed Network Installation
+                </p>
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                    <a href="/portfolio" class="btn btn-primary btn-lg px-5 py-3">View Projects</a>
+                    <a href="/contact" class="btn btn-outline-light btn-lg px-5 py-3">Hire Me</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scroll Down Indicator -->
+    <div class="scroll-down position-absolute bottom-0 start-50 translate-middle-x mb-4">
+        <div class="mouse">
+            <div class="wheel"></div>
+        </div>
+    </div>
+</section>
+{% endblock %}

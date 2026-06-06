@@ -1,0 +1,601 @@
+:root {
+    --bg: #0f0f1a;
+    --text: #e0e0ff;
+    --accent: #00ffea;
+    --gradient: linear-gradient(135deg, #00ffea, #ff00c8);
+}
+
+[data-theme="light"] {
+    --bg: #f8f9fa;
+    --text: #212529;
+    --accent: #00b8a9;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Roboto Mono', monospace;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.navbar-brand {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-primary {
+    background: var(--gradient);
+    border: none;
+}
+
+section {
+    padding: 80px 0;
+}
+
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+    background: var(--gradient);                  /* If used here */
+    -webkit-background-clip: text;
+    background-clip: text;                        /* ← Add */
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+
+/* Epic Hero Section */
+.hero {
+    background: transparent;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/static/img/hero-bg.jpg') center/cover no-repeat fixed;
+    z-index: -2;
+}
+
+.hero-overlay {
+    background: rgba(15, 15, 26, 0.85); /* Dark tint for text readability */
+    z-index: -1;
+}
+
+.gradient-text {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 4.5rem;
+}
+
+/* Scroll Down Mouse */
+.scroll-down {
+    animation: bounce 2s infinite;
+}
+
+.mouse {
+    width: 30px;
+    height: 50px;
+    border: 2px solid #00ffea;
+    border-radius: 60px;
+    position: relative;
+}
+
+.wheel {
+    width: 6px;
+    height: 6px;
+    background: #00ffea;
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+}
+
+@keyframes scroll {
+    0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+    100% { transform: translateX(-50%) translateY(20px); opacity: 0; }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .gradient-text {
+        font-size: 3rem;
+    }
+}
+
+
+/* Profile Picture with Neon Glow Border */
+.profile-container {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    margin: 0 auto;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--accent);
+    box-shadow: 0 0 30px rgba(0, 255, 234, 0.8), 0 0 60px rgba(255, 0, 200, 0.4);
+    transition: all 0.5s;
+}
+
+.profile-img:hover {
+    box-shadow: 0 0 50px rgba(0, 255, 234, 1), 0 0 100px rgba(255, 0, 200, 0.6);
+    transform: scale(1.05);
+}
+
+/* Gradient Text Class (reusable) */
+.gradient-text {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Skills Progress Bars */
+.progress {
+    height: 12px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--gradient);
+    border-radius: 10px;
+    transition: width 2s ease-in-out;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: var(--gradient);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    box-shadow: 0 0 10px rgba(0,255,234,0.6);
+}
+
+.timeline-item {
+    padding: 20px 40px;
+    position: relative;
+    width: 50%;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-date {
+    background: var(--gradient);
+    color: #000;
+    padding: 8px 16px;
+    border-radius: 30px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.timeline-content {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .timeline::before { left: 30px; }
+    .timeline-item { width: 100%; padding-left: 70px; padding-right: 20px; text-align: left; }
+    .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { left: 0; }
+}
+
+/* Services Section Background */
+.services-section {
+    background: transparent;
+}
+
+.services-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('/static/img/services-bg.jpg') center/cover no-repeat fixed;
+    z-index: -2;
+    opacity: 0.6;
+}
+
+.services-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(15, 15, 26, 0.8);
+    z-index: -1;
+}
+
+/* Service Cards Hover */
+.service-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 1.5rem;
+    transition: all 0.4s;
+    box-shadow: 0 10px 30px rgba(0,255,234,0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 50px rgba(0,255,234,0.5);
+}
+
+/* Icons */
+.service-icon {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 20px;
+    box-shadow: 0 0 20px var(--accent);
+    margin: 0 auto;
+}
+
+/* Pulse Button */
+.pulse-btn {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0,255,234,0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(0,255,234,0); }
+    100% { box-shadow: 0 0 0 0 rgba(0,255,234,0); }
+}
+
+/* Tab Buttons */
+.nav-pills .nav-link.active {
+    background: var(--gradient);
+    color: #000;
+}
+
+
+/* Services Section Background */
+.services-section {
+    background: transparent;
+}
+
+.services-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('/static/img/services-bg.jpg') center/cover no-repeat fixed;
+    z-index: -2;
+    opacity: 0.6;
+}
+
+.services-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(15, 15, 26, 0.8);
+    z-index: -1;
+}
+
+/* Service Cards Hover */
+.service-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 1.5rem;
+    transition: all 0.4s;
+    box-shadow: 0 10px 30px rgba(0,255,234,0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 50px rgba(0,255,234,0.5);
+}
+
+/* Icons */
+.service-icon {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 20px;
+    box-shadow: 0 0 20px var(--accent);
+    margin: 0 auto;
+}
+
+/* Pulse Button */
+.pulse-btn {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0,255,234,0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(0,255,234,0); }
+    100% { box-shadow: 0 0 0 0 rgba(0,255,234,0); }
+}
+
+/* Tab Buttons */
+.nav-pills .nav-link.active {
+    background: var(--gradient);
+    color: #000;
+}
+
+
+/* Portfolio Section - Neon Hover Reveal */
+.portfolio-section {
+    background: transparent;
+}
+
+.portfolio-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('/static/img/portfolio-bg.jpg') center/cover no-repeat fixed;
+    opacity: 0.4;
+    z-index: -2;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(15, 15, 26, 0.85);
+    z-index: -1;
+}
+
+.portfolio-card {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,255,234,0.3);
+    transition: all 0.5s ease;
+    height: 450px; /* Consistent height */
+}
+
+.portfolio-card:hover {
+    transform: translateY(-20px) scale(1.03);
+    box-shadow: 0 30px 60px rgba(0,255,234,0.7);
+}
+
+.portfolio-card .card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15,15,26,0.95), transparent 50%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    text-align: center;
+}
+
+.portfolio-card:hover .card-overlay {
+    opacity: 1;
+}
+
+/* Filter Buttons Active State */
+.filter-btn.active {
+    background: var(--gradient);
+    color: #000;
+}
+
+/* Fiber Tech Section */
+.fiber-section {
+    background: transparent;
+}
+
+.fiber-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('/static/img/fiber-bg.jpg') center/cover no-repeat fixed;
+    opacity: 0.5;
+    z-index: -2;
+}
+
+.fiber-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(15, 15, 26, 0.85);
+    z-index: -1;
+}
+
+/* Gallery Hover Glow */
+.gallery-card {
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,255,234,0.3);
+    transition: all 0.5s;
+}
+
+.gallery-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 30px 60px rgba(0,255,234,0.7);
+}
+
+.gallery-card img {
+    transition: transform 0.5s;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Process Steps */
+.process-step {
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0 5px 20px rgba(0,255,234,0.2);
+}
+
+
+/* Blog Section */
+.blog-section {
+    background: transparent;
+}
+
+.blog-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('/static/img/blog-bg.jpg') center/cover no-repeat fixed;
+    opacity: 0.4;
+    z-index: -2;
+}
+
+.blog-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(15, 15, 26, 0.85);
+    z-index: -1;
+}
+
+.blog-card {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,255,234,0.3);
+    transition: all 0.5s ease;
+    height: 400px;
+}
+
+.blog-card:hover {
+    transform: translateY(-20px) scale(1.03);
+    box-shadow: 0 30px 60px rgba(0,255,234,0.7);
+}
+
+.blog-card .card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+.blog-card .card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15,15,26,0.95), transparent 40%);
+    color: white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.blog-card:hover .card-overlay {
+    opacity: 1;
+}
+
+footer a.text-light:hover {
+    color: var(--accent) !important;
+    transform: scale(1.2);
+    transition: all 0.3s;
+}
+
+.google-form-wrapper {
+    background: rgba(15, 15, 26, 0.9);
+    border: 1px solid rgba(0, 255, 234, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 255, 234, 0.15);
+    transition: all 0.3s ease;
+}
+
+.google-form-wrapper:hover {
+    box-shadow: 0 15px 40px rgba(0, 255, 234, 0.25);
+}
+
+.google-form-wrapper iframe {
+    border-radius: 1rem;
+    background: transparent;
+}
+
+/* Make sure the form fits on mobile */
+@media (max-width: 768px) {
+    .google-form-wrapper {
+        padding: 1.5rem;
+    }
+    .google-form-wrapper iframe {
+        height: 1100px; /* Slightly taller on small screens */
+    }
+}
+
+.google-form-wrapper {
+    background: rgba(15, 15, 26, 0.9);
+    border: 1px solid rgba(0, 255, 234, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 255, 234, 0.15);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.google-form-wrapper:hover {
+    box-shadow: 0 15px 40px rgba(0, 255, 234, 0.25);
+}
+
+.google-form-wrapper iframe {
+    display: block;
+    border-radius: 1rem;
+    background: transparent;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .google-form-wrapper {
+        padding: 1.5rem;
+    }
+    .google-form-wrapper iframe {
+        height: 1200px;  /* Taller on phones to reduce internal scrolling */
+    }
+}

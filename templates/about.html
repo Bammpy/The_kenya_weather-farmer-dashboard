@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}About - Bammpy ByteBeam Forge{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <!-- Hero Bio Section -->
+        <div class="row align-items-center mb-5" data-aos="fade-up">
+            <div class="col-lg-6 text-center text-lg-start order-lg-2">
+                <h1 class="display-4 mb-4 gradient-text">About Bammpy</h1>
+                <p class="lead">I'm a passionate Python developer and fiber optic technician forging the bridge between powerful code and seamless real-world connectivity.</p>
+                <p>From crafting full-stack web apps, mobile/desktop software, machine learning models, and data pipelines... to installing high-speed fiber networks, configuring WiFi packages, and rapid troubleshooting – I deliver end-to-end solutions.</p>
+                <p>I also build ready-to-deploy projects for sale and provide precise research, proposals, and technical documentation.</p>
+                <div class="d-flex gap-3 flex-wrap justify-content-center justify-content-lg-start mt-4">
+                    <a href="/contact" class="btn btn-primary btn-lg px-5">Hire Me</a>
+                    <a href="/portfolio" class="btn btn-outline-light btn-lg px-5">View Portfolio</a>
+                </div>
+            </div>
+
+            <div class="text-center mt-5" data-aos="fade-up">
+    <h4 class="mb-4">Download or View My CV</h4>
+    <a href="{{ url_for('static', filename='files/Bammpy_CV.pdf') }}" class="btn btn-primary btn-lg px-5 me-3" download>
+        Download CV 📄
+    </a>
+    <a href="{{ url_for('static', filename='files/Bammpy_CV.pdf') }}" target="_blank" class="btn btn-outline-light btn-lg px-5">
+        View CV 👀
+    </a>
+</div>
+            <div class="col-lg-6 text-center order-lg-1" data-aos="zoom-in" data-aos-delay="200">
+                <div class="profile-container mx-auto">
+                    <img src="{{ url_for('static', filename='img/profile.webp') }}" alt="Bammpy Profile" class="profile-img">
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Progress Bars -->
+        <h2 class="text-center mb-5 gradient-text" data-aos="fade-up">Skills & Expertise</h2>
+        <div class="row g-4" data-aos="fade-up">
+            <div class="col-md-6">
+                <div class="skill-bar mb-4">
+                    <div class="d-flex justify-content-between"><span>Python Development</span><span>95%</span></div>
+                    <div class="progress"><div class="progress-bar" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-bar mb-4">
+                    <div class="d-flex justify-content-between"><span>Full-Stack Web</span><span>90%</span></div>
+                    <div class="progress"><div class="progress-bar" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-bar mb-4">
+                    <div class="d-flex justify-content-between"><span>Machine Learning & Data</span><span>85%</span></div>
+                    <div class="progress"><div class="progress-bar" style="width: 85%;"></div></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="skill-bar mb-4">
+                    <div class="d-flex justify-content-between"><span>Fiber Optic Installation</span><span>95%</span></div>
+                    <div class="progress"><div class="progress-bar" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-bar mb-4">
+                    <div class="d-flex justify-content-between"><span>Network Configuration</span><span>92%</span></div>
+                    <div class="progress"><div class="progress-bar" style="width: 92%;"></div></div>
+                </div>
+                <div class="skill-bar mb-4">
+                    <div class="d-flex justify-content-between"><span>Project Documentation</span><span>90%</span></div>
+                    <div class="progress"><div class="progress-bar" style="width: 90%;"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <h2 class="text-center mt-5 mb-5 gradient-text" data-aos="fade-up">My Journey</h2>
+        <div class="timeline" data-aos="fade-up">
+            <div class="timeline-item">
+                <div class="timeline-date">2020</div>
+                <div class="timeline-content">
+                    <h5>Started Python Journey</h5>
+                    <p>Dove into Python and built my first web apps.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2022</div>
+                <div class="timeline-content">
+                    <h5>First Fiber Installations</h5>
+                    <p>Began professional fiber optic and WiFi network setups.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2024</div>
+                <div class="timeline-content">
+                    <h5>Launched Project Sales</h5>
+                    <p>Started developing and selling ready-made Python projects.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2025</div>
+                <div class="timeline-content">
+                    <h5>Bammpy ByteBeam Forge</h5>
+                    <p>Official launch – combining code and connectivity expertise.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

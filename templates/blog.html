@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Blog - Bammpy ByteBeam Forge{% endblock %}
+
+{% block content %}
+<section class="blog-section py-5 position-relative overflow-hidden">
+    <!-- Background -->
+    <div class="blog-bg"></div>
+    <div class="blog-overlay"></div>
+
+    <div class="container position-relative" data-aos="fade-up">
+        <h1 class="text-center display-4 mb-4 gradient-text">Blog & Insights</h1>
+        <p class="text-center lead mb-5">Deep dives into Python, ML, data analysis, fiber tech, and project building.</p>
+
+        <!-- Filter Buttons -->
+        <div class="text-center mb-5">
+            <button class="btn btn-outline-light btn-lg me-3 filter-btn active">All</button>
+            <button class="btn btn-outline-light btn-lg me-3 filter-btn">Python</button>
+            <button class="btn btn-outline-light btn-lg me-3 filter-btn">ML & Data</button>
+            <button class="btn btn-outline-light btn-lg filter-btn">Fiber Tech</button>
+        </div>
+
+        <div class="row g-4">
+            <!-- Post 1 - Python -->
+            <div class="col-md-6 col-lg-4 blog-item" data-aos="fade-up">
+                <div class="blog-card">
+                    <img src="https://source.unsplash.com/random/600x400/?python,code,neon" class="card-img-top" alt="Flask Tips">
+                    <div class="card-overlay">
+                        <h5 class="gradient-text">Building Scalable Flask Apps</h5>
+                        <p class="text-muted small">December 22, 2025 • 5 min read</p>
+                        <p>Tips for blueprints, extensions, and deployment best practices.</p>
+                        <a href="#" class="btn btn-primary pulse-btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post 2 - ML -->
+            <div class="col-md-6 col-lg-4 blog-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="blog-card">
+                    <img src="https://source.unsplash.com/random/600x400/?machine,learning,neon" class="card-img-top" alt="ML Guide">
+                    <div class="card-overlay">
+                        <h5 class="gradient-text">ML in Python: From Zero to Model</h5>
+                        <p class="text-muted small">December 2025 • 8 min read</p>
+                        <p>Beginner guide to data prep, training, and deployment.</p>
+                        <a href="#" class="btn btn-primary pulse-btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post 3 - Fiber -->
+            <div class="col-md-6 col-lg-4 blog-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="blog-card">
+                    <img src="https://source.unsplash.com/random/600x400/?fiber,optic,neon" class="card-img-top" alt="WiFi Fixes">
+                    <div class="card-overlay">
+                        <h5 class="gradient-text">Common WiFi Issues & Pro Fixes</h5>
+                        <p class="text-muted small">December 2025 • 6 min read</p>
+                        <p>Real field tips for interference, speed drops, and coverage.</p>
+                        <a href="#" class="btn btn-primary pulse-btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more posts by duplicating -->
+        </div>
+    </div>
+</section>
+{% endblock %}

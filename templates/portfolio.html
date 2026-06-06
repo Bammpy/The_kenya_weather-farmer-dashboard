@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Portfolio - Bammpy ByteBeam Forge{% endblock %}
+
+{% block content %}
+<section class="portfolio-section py-5 position-relative overflow-hidden">
+    <!-- Background -->
+    <div class="portfolio-bg"></div>
+    <div class="portfolio-overlay"></div>
+
+    <div class="container position-relative" data-aos="fade-up">
+        <h1 class="text-center display-4 mb-4 gradient-text">Portfolio & Projects</h1>
+        <p class="text-center lead mb-5">Explore my forged creations – some available for purchase!</p>
+
+        <!-- Simple Filter Buttons (Visual Only for Now) -->
+        <div class="text-center mb-5">
+            <button class="btn btn-outline-light btn-lg me-3 filter-btn active">All</button>
+            <button class="btn btn-outline-light btn-lg me-3 filter-btn">Software</button>
+            <button class="btn btn-outline-light btn-lg filter-btn">Fiber Tech</button>
+        </div>
+
+        <div class="row g-4">
+            <!-- Project Card 1 - Software -->
+            <div class="col-md-6 col-lg-4 portfolio-item" data-aos="fade-up">
+                <div class="portfolio-card">
+                    
+                    <div class="card-overlay">
+                        <h3 class="gradient-text">Python Dashboard App</h3>
+                        <p>Interactive data visualization tool built with Flask & Plotly</p>
+                        <p><strong>Tech:</strong> Python, Flask, Plotly</p>
+                        <p><strong>Status:</strong> Available for Sale</p>
+                        <a href="/contact" class="btn btn-primary pulse-btn mt-3">Inquire / Buy</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 2 - Fiber -->
+            <div class="col-md-6 col-lg-4 portfolio-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="portfolio-card">
+                    
+                    <div class="card-overlay">
+                        <h5 class="gradient-text">Enterprise Fiber & WiFi Setup</h5>
+                        <p>High-speed fiber termination + multi-package router config</p>
+                        <p><strong>Client:</strong> Commercial & Residential</p>
+                        <a href="/contact" class="btn btn-primary pulse-btn mt-3">Book Similar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more cards by duplicating the blocks above -->
+            <div class="col-md-6 col-lg-4 portfolio-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="portfolio-card">
+                    
+                    <div class="card-overlay">
+                        <h5 class="gradient-text">Machine Learning Model</h5>
+                        <p>Custom prediction tool with TensorFlow</p>
+                        <a href="/contact" class="btn btn-primary pulse-btn mt-3">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

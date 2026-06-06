@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}Services - Bammpy ByteBeam Forge{% endblock %}
+
+{% block content %}
+<section class="services-section py-5 position-relative overflow-hidden">
+    <!-- Background -->
+    <div class="services-bg"></div>
+    <div class="services-overlay"></div>
+
+    <div class="container position-relative" data-aos="fade-up">
+        <h1 class="text-center display-4 mb-4 gradient-text">Services</h1>
+        <p class="text-center lead mb-5">Choose your forge: Digital mastery or seamless connectivity</p>
+
+        <!-- Tabs Switch -->
+        <ul class="nav nav-pills justify-content-center mb-5" id="servicesTabs">
+            <li class="nav-item">
+                <button class="nav-link active btn-lg" data-bs-toggle="pill" data-bs-target="#software">Software Development</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link btn-lg" data-bs-toggle="pill" data-bs-target="#fiber">Fiber & Networking</button>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <!-- Software Tab -->
+            <div class="tab-pane fade show active" id="software">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="service-card h-100 p-4">
+                            <img src="https://thumbs.dreamstime.com/b/colorful-digital-code-interface-programming-screen-glowing-neon-futuristic-software-development-cyber-technology-innovation-398867738.jpg" class="service-icon mb-4" alt="Code Icon">
+                            <h3 class="gradient-text">Full-Stack Development</h3>
+                            <div class="accordion" id="softwareAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sw1">Details & Packages</button>
+                                    </h2>
+                                    <div id="sw1" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li>Basic Website: Starting at $500</li>
+                                                <li>Custom Web App: $1500+</li>
+                                                <li>Mobile/Desktop Apps: Quote</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat similar cards for other software services -->
+                    <div class="col-lg-6">
+                        <div class="service-card h-100 p-4">
+                            <img src="https://thumbs.dreamstime.com/b/glowing-snake-center-code-lines-python-programming-symbol-neon-light-cybernetic-serpent-circuit-board-digital-ai-389980556.jpg" class="service-icon mb-4" alt="ML Icon">
+                            <h3 class="gradient-text">ML & Data Analysis</h3>
+                            <p class="mt-3">Custom models, pipelines, visualizations.</p>
+                            <a href="/contact" class="btn btn-primary mt-auto pulse-btn">Get Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fiber Tab -->
+            <div class="tab-pane fade" id="fiber">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="service-card h-100 p-4">
+                            <img src="https://www.shutterstock.com/shutterstock/videos/3937618617/thumb/1.jpg?ip=x480" class="service-icon mb-4" alt="WiFi Icon">
+                            <h3 class="gradient-text">Fiber Installation & WiFi Setup</h3>
+                            <div class="accordion" id="fiberAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fb1">Packages</button>
+                                    </h2>
+                                    <div id="fb1" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li>Home Basic: $200</li>
+                                                <li>Business Premium: $500+</li>
+                                                <li>Custom Packages: Quote</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="service-card h-100 p-4">
+                            <img src="https://thumbs.dreamstime.com/b/internet-flickering-router-illustration-connection-signal-wifi-network-modem-bandwidth-404375349.jpg" class="service-icon mb-4" alt="Repair Icon">
+                            <h3 class="gradient-text">Connectivity Repairs</h3>
+                            <p class="mt-3">Fast troubleshooting & fixes.</p>
+                            <a href="/contact" class="btn btn-primary mt-auto pulse-btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
