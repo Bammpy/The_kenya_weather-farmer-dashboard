@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Syntax check (compile)
+        run: python -m compileall .
+
+      - name: Basic health endpoint test
+        run: |
+          python - <<'PY'
+          from app import app
+          client = app.test_client()
+          res = client.get('/health')
+          assert res.status_code == 200, f"health status {res.status_code}"
+          print('Health OK:', res.json)
+          PY

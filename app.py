@@ -3,8 +3,9 @@ load_dotenv()
 
 import os
 
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for, jsonify
 from flask_mail import Mail, Message
+import logging
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'bammpy_super_secret_key_2025')  # Use env for production if available
@@ -23,6 +24,10 @@ app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')          # Your Br
 app.config['MAIL_DEFAULT_SENDER'] = ("Bammpy ByteBeam Forge", os.environ.get('MAIL_SENDER', 'whatbethebusiness@gmail.com'))
 
 mail = Mail(app)
+
+# Basic logging configuration for production readiness
+logging.basicConfig(level=logging.INFO)
+app.logger.setLevel(logging.INFO)
 
 # Routes
 @app.route('/')
@@ -89,12 +94,20 @@ Sent from your portfolio site
             mail.send(msg)
             flash(f"Thanks {name}! Your message was sent successfully. I'll reply soon 🚀", "success")
         except Exception as e:
-            print(f"Mail send failed: {e}")
+            app.logger.exception("Mail send failed")
             flash("Sorry, something went wrong. Please email me directly at whatbethebusiness@gmail.com or try again later.", "danger")
 
         return redirect(url_for('contact'))
 
     return render_template('contact.html')
 
+
+@app.route('/health', methods=['GET'])
+def health():
+    """Simple health check for load balancers and platform readiness."""
+    return jsonify(status='ok'), 200
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Control debug mode via environment variable `DEBUG`. Defaults to False for production.
+    debug = os.environ.get('DEBUG', 'False').lower() in ('1', 'true', 'yes')
+    app.run(host='0.0.0.0', debug=debug)
